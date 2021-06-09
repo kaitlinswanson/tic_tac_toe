@@ -1,3 +1,8 @@
+:root { 
+    --cell-size:90px;
+    --mark-size: calc(var(--cell-size)*.9);
+}
+
 
 #gameName { 
     font-family: 'Times New Roman', Times, serif;
@@ -14,18 +19,81 @@
     width: 320px;
     margin-left: 450px;
     margin-top:  130px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .cell { 
     border: 6px; 
-    border-color: black;
-    background-color:lightgrey; 
-    height: 90px; 
-    width: 90px; 
+    border-color: black; 
+    background-color: lightgrey;
+    height: var(--cell-size); 
+    width: var(--cell-size); 
     padding: 10px;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* using to make sure x position isn't offset*/
+    cursor: pointer;
+}
 
+.cell.x, 
+.cell.circle { 
+    cursor: not-allowed;
+}
+
+.cell.x::before, 
+.cell.x::after { 
+    background-color: black;
+}
+/*for hover effect*/
+.gameContainer.x .cell:not(.x):not(.circle):hover::before,
+.gameContainer.x .cell:not(.x):not(.circle):hover::after { 
+    background-color: gray;
 }
 
 
+
+/*for individual xs and os*/
+
+.cell.x::before, 
+.cell.x::after,
+.gameContainer.x .cell:not(.x):not(.circle):hover::before,
+.gameContainer.x .cell:not(.x):not(.circle):hover::after {
+    content: '';
+    position: absolute; /* using to make sure x position isn't offset*/
+    width: calc(var(--mark-size) * .15); 
+    height: var(--mark-size);
+    
+}
+
+.cell.x::before,
+.gameContainer.x .cell:not(.x):not(.circle):hover::before{ 
+    transform: rotate(45deg);
+}
+
+.cell.x::after,
+.gameContainer.x .cell:not(.x):not(.circle):hover::after { 
+    transform: rotate(-45deg);
+}
+
+.cell.circle::before, 
+.cell.circle::after {
+    content: '';
+    position: absolute; /* using to make sure x position isn't offset*/
+    border-radius: 50%;
+}
+
+.cell.circle::before { 
+    width: var(--mark-size);
+    height: var(--mark-size);
+    background-color: black;
+}
+
+.cell.circle::after { 
+    width: calc(var(--mark-size) * .7);
+    height: calc(var(--mark-size) * .7);
+    background-color: lightgrey;
+}
