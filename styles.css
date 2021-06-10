@@ -1,24 +1,38 @@
+  
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+
 :root { 
-    --cell-size:90px;
+    --cell-size:140px;
     --mark-size: calc(var(--cell-size)*.9);
+    background-color: black;
+}
+
+body { 
+    margin: 0;
 }
 
 
 #gameName { 
     font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
+    font-size: 62px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
     margin-top: 50px;
+    color: rgb(164, 235, 32);
+    padding: 0px;
 }
 
 .gameContainer { 
+    width: 100vw;
+    height: 100vh;
     display: grid;
     grid-gap: 1px;
-    grid-template-columns: repeat(3, 1fr);
-    width: 320px;
-    margin-left: 450px;
-    margin-top:  130px;
+    grid-template-columns: repeat(3, auto);
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -46,11 +60,11 @@
 
 .cell.x::before, 
 .cell.x::after { 
-    background-color: black;
+    background-color: #DFFF00;
 }
 .cell.circle::before, 
 .cell.circle::after { 
-    background-color: black;
+    background-color: #FF5F1F;
 }
 
 
@@ -110,4 +124,25 @@
     width: calc(var(--mark-size) * .7);
     height: calc(var(--mark-size) * .7);
     background-color: lightgrey;
+}
+.winning-message { 
+    color: white;
+    font-size: 70px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#reset { 
+    height: 70px;
+    width: 200px;
+    display: flex;
+    background-color: hotpink;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 80px;
 }

@@ -1,7 +1,7 @@
 
 
 // use a module to create the gameBoard object as an array inside of it. 
-
+const gameBoard = (() => { 
 //const gameBoard = (() => {
 // set up constants for winning combos, identefiers in the gameBoard and variable for the current turn.
 const xClass = 'x'
@@ -26,9 +26,7 @@ const winningSet = [
 startGame();
 
 
-  playAgain.addEventListener('click', startGame);
-
-
+playAgain.addEventListener('click', startGame);
 
 
 // event listeners allowing the players selection to be clicked one time
@@ -115,7 +113,7 @@ startGame();
       }
     
   
- // })();
+ })();
 
 //create a factrory function so you can add players
 //const Player = (playerName, marker) => { 
